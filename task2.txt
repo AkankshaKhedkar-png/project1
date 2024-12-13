@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class StudentResult {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Number of subjects
+        int numSubjects = 5;  // You can change this to any number of subjects
+        int[] marks = new int[numSubjects];
+        int totalMarks = 0;
+
+        // Take marks input from the user
+        System.out.println("Enter the marks obtained in " + numSubjects + " subjects (0 to 100):");
+        for (int i = 0; i < numSubjects; i++) {
+            System.out.print("Subject " + (i + 1) + ": ");
+            marks[i] = scanner.nextInt();
+
+            // Validate marks input (0 to 100)
+            if (marks[i] < 0 || marks[i] > 100) {
+                System.out.println("Invalid input. Marks should be between 0 and 100.");
+                return; // Exit the program if invalid input is given
+            }
+
+            totalMarks += marks[i];  // Sum up the marks
+        }
+
+        // Calculate the average percentage
+        double averagePercentage = (double) totalMarks / (numSubjects * 100) * 100;
+
+        // Calculate grade based on average percentage
+        String grade;
+        if (averagePercentage >= 90) {
+            grade = "A+";
+        } else if (averagePercentage >= 80) {
+            grade = "A";
+        } else if (averagePercentage >= 70) {
+            grade = "B";
+        } else if (averagePercentage >= 60) {
+            grade = "C";
+        } else if (averagePercentage >= 50) {
+            grade = "D";
+        } else {
+            grade = "F";
+        }
+
+        // Display the result
+        System.out.println("\n--- Result ---");
+        System.out.println("Total Marks: " + totalMarks + "/" + (numSubjects * 100));
+        System.out.println("Average Percentage: " + averagePercentage + "%");
+        System.out.println("Grade: " + grade);
+        
+        scanner.close();
+    }
+}
+Answer:
+Enter the marks obtained in 5 subjects (0 to 100):
+Subject 1: 67
+Subject 2: 89
+Subject 3: 34
+Subject 4: 76
+Subject 5: 87
+
+--- Result ---
+Total Marks: 353/500
+Average Percentage: 70.6%
+Grade: B
+PS C:\Users\DELL> 
